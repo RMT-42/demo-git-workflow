@@ -10,6 +10,19 @@ class Controller {
       });
     }
   }
+
+  static async register(request, response) {
+    try {
+      console.log("pokoe register");
+      response.status(201).json({ message: "mantap" });
+    } catch (error) {
+      response.status(500).json({
+        message: "ISE",
+      });
+    }
+  }
 }
 
-module.exports = Controller;
+module.exports = {
+  UserController: Controller,
+};

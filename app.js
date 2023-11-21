@@ -1,7 +1,13 @@
-const Controller = require("./controller");
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-const app = require("express")();
+const router = require("./routes");
 
-app.post("/login", Controller.login);
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(router);
 
-app.listen(3000, () => console.log("App running on port:", 3000));
+app.listen(PORT, () => {
+  console.log("App running on port", PORT);
+});
